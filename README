@@ -1,0 +1,64 @@
+Copyright 2021 Diaconu Tudor-Gabriel
+
+Tema 1 SD 2021
+
+Pentru realizarea temei, am folosit o structura generica de lista, o structura
+generica de nod si o structura care continea informatiile planetei(numele,
+lista de scuturi si numarul de kill-uri). Am folosit de asemenea, cateva din
+functiile implementate in laboratorul de liste dublu inlantuite. Pentru fiecare
+comanda posibila in terminal, am implementat cate o functie. Va voi prezenta in
+continuare un rezumat sumar pentru  implementarea fiecarei comenzi. In cadrul
+fiecarei comenzi implementate, am facut citirea valorilor ce insotesc comanda.
+
+1. ADD
+In functia de add, alocam noul nod ce urmeaza a fi adaugat la lista de planete,
+ii cream lista de shield-uri, si cu ajutorul functiei de add_node, adaugam
+noduri la lista de shield-uri si ulterior adaugam nodul(planeta) la galaxie.
+
+2. SHW
+In functia de show accesez nodul dorit cu ajutorul functiei de get_nth_node
+si de asemenea accesez informatiile din data despre nodul dorit si vecinii sai.
+Apoi, afisez numele, vecinii, lista de shield-uri(cu ajutorul functiei din lab)
+si numarul de kill-uri. Pentru a accesa informatiile din data ale nodului dorit
+am facut cast la node_data_t(tipul definit de mine) pentru variabila data.
+
+3. EXP
+In functia de expand, accesez nodul dorit cu get_nth_node si informatiile
+acestuia prin cast, pentru a putea adauga un nou nod in lista de scuturi.
+
+4. ROT
+In functia de rotire, pentru a roti lista de shield-uri, trebuie practic sa
+mutam head-ul listei. Astfel ne folosim de functia get_nth_node pentru a accesa
+planeta dorita si ii putem accesa astfel lista de scuturi corespunzatoare
+pentru a muta head-ul la dreapta sau stanga, in functie de sensul dorit.
+
+5. UPG
+In functia de upgrade, am folosit functia de get_nth_node de 2 ori pentru a
+accesa atat planeta dorita din lista de planete, cat si scutul dorit pe care
+dorim sa il upgradam. Valorile shield-urilor fiind intregi, a trebuit sa facem
+cast la int pentru variabila data.
+
+6. RMV
+In functia de remove, prin intermediul lui get_nth_node, accesez planeta dorita
+si scutul dorit, iar prin intermediul cast-ului, accesam informatiile despre
+respectiva planeta. Prin intermediul functiei de remove_node, stergem scutul
+din lista de scuturi si ulterior il eliberam.
+
+7. BLH
+In functia de "eat_planet", ne luam intr-o variabila de tip nod, prin
+intermediul functiei de remove_node, nodul pe care vrem sa il stergem, iar
+prin cast accesam si informatiile nodului pentru a putea elibera lista de
+scuturi din el. Apoi eliberam informatiile din nodul sters si nodul efectiv.
+
+8. COL
+In functia de colision, am accesat cele doua planete dorite din galaxie si
+listele lor de scuturi. Am pus in doua variabile valorile scuturilor care intra
+in coliziune, iar apoi am evaluat toate cazurile posibile, in urma unei
+coliziuni: cele 2 cazuri in care una din planete este distrusa, cazul in care
+ambele planete sunt distruse si cazul in care nu este niciuna distrusa.
+
+Main:
+In main, am citit numarul de operatii si comanda data in terminal, am creat
+galaxia(lista de planete), pe care, dupa efectuarea tuturor comenzilor, o
+eliberam, eliberand si fiecare nod al galaxiei(inclusiv lista de scuturi).
+
